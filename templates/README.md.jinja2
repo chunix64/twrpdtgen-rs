@@ -1,0 +1,48 @@
+# Android device tree for {{ device_info.manufacturer }} {{ device_info.codename }}
+## 📱 Device Specifications
+
+| Property          | Value                                     |
+|-------------------|-------------------------------------------|
+| **Device Name**   | Unknown                                   |
+| **Model**         | {{ device_info.codename }}                |
+| **Build Number**  | Unknown                                   |
+| **CPU**           | Unknown                                   |
+| **Android**       | Unknown                                   |
+| **Storage**       | Unknown                                   |
+| **RAM**           | Unknown                                   |
+| **Battery**       | Unknown                                   |
+| **Display**       | Unknown                                   |
+| **A/B Device**    | {% if device_info.device_is_ab %}True{% else %}False{%endif%}|
+| **Treble Device** | Unknown                                   |
+
+## ⚙️ Purpose of This Device Tree
+
+This device tree was created to build **custom recovery images**, primarily for:
+
+- [OrangeFox Recovery Project (OFRP)](https://orangefox.download)
+- [Team Win Recovery Project  (TWRP)](https://twrp.me)
+
+> ⚠️ **Note:** This device tree is automatic generate, **modifications are required** to make it work well.
+
+## 🛠️ Status
+
+| Component       | Status      |
+|-----------------|-------------|
+| Device Tree     | ⚠️ Uncheck  |
+| OrangeFox Build | ⚠️ Uncheck  |
+| TWRP Support    | ⚠️ Uncheck  |
+
+---
+
+## ⚡ Flash custom recovery
+- TWRP: `fastboot flash`
+- OFRP: `fastboot flash `
+
+## 📎 Additional Notes
+- Android 13 or older `lunch` uses the format `twrp_<product>-<variant>`
+- Android 14+ `lunch` uses the format `twrp_<product>-<release>-<variant>`
+- Example: `lunch twrp_{{ device_info.codename }}-ap2a-eng` (ap2a is the default release name used by [OrangeFox build Wiki](https://wiki.orangefox.tech/en/dev/building))
+
+```
+{% include 'LICENSE.jinja2' %}
+```
