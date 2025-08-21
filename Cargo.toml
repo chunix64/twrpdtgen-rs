@@ -1,0 +1,7 @@
+[package]
+name = "twrpdtgen-rs"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+abootimg-oxide = "0.2.2"
